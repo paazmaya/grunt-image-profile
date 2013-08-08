@@ -2,6 +2,8 @@
 
 > A Grunt task for working with image metadata profiles via ImageMagick
 
+See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles) for more details about what is done internally.
+
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
 
@@ -20,26 +22,29 @@ grunt.loadNpmTasks('grunt-image-profile');
 ## The "image_profile" task
 
 ### Overview
-In your project's Gruntfile, add a section named `image_profile` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `image_profile` to the data object passed into `grunt.initConfig()` and configure
+according to the multi task configuration styles.
 
 ```js
 grunt.initConfig({
   image_profile: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    dist: {
+      options: {
+        // Task-specific options go here.
+      },
+      files: {
+        // Target-specific file lists and/or options go here.
+      }
+    }
   },
 })
 ```
 
 ### Options
 
-#### options.separator
+#### options.byline
 Type: `String`
-Default value: `',  '`
+Default value: `''`
 
 A string value that is used to do something with whatever.
 

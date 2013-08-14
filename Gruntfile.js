@@ -30,22 +30,21 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     image_profile: {
-      default_options: {
+      copyright: {
         options: {
+          iptc: {
+            '2#80#Byline': 'Jukka Paasonen'
+          }
         },
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
+          'tmp/copyright.jpg': ['test/fixtures/no-copyright.jpg'],
         },
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+      
+      location: {
+        options: {},
+        src: ['test/fixtures/no-copyright.jpg']
+      }
     },
 
     // Unit tests.

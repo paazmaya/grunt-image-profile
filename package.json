@@ -38,6 +38,15 @@
     "grunt": "~0.4.1"
   },
   "keywords": [
+    "image",
+    "picture",
+    "photo",
+    "profile",
+    "iptc",
+    "location",
+    "coordinates",
+    "copyright",
+    "author",
     "gruntplugin"
   ]
 }

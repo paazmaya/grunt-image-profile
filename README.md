@@ -42,11 +42,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.byline
-Type: `String`
-Default value: `''`
+#### options.iptc
+Type: `Object`
+Example: `{ '2#80#Byline': 'Juga Paazmaya'}`
 
-A string value that is used to do something with whatever.
+Collection of keys and their values to be used as IPTC based profile.
 
 #### options.punctuation
 Type: `String`

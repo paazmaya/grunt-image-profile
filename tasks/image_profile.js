@@ -6,44 +6,37 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
-
 module.exports = function(grunt) {
+  'use strict';
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+  grunt.registerMultiTask('image_profile', 'Working with image metadata profiles via ImageMagick', function() {
 
-  grunt.registerMultiTask('image_profile', 'Your task description goes here.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
-
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
+    // Defaults, if any
+    var options = this.options({});
+    
+    // Temporary profile file
+    if (options.hasOwnProperty('iptc')) {
+      // Create IPTC file
+      var iptcOptions = options.iptc;
+      var iptcContent = [];
+      for (var key in iptcOptions) {
+        if (iptcOptions.hasOwnProperty(key)) {
+          iptcContent.push(key + '="' + iptcOptions[key] + '"');
         }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+      }
+      grunt.file.write('tmp/' + this.target + '.iptc', iptcContent.join("\n"));
+    }
 
-      // Handle options.
-      src += options.punctuation;
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
+    this.files.forEach(function(file) {
+      
+      grunt.log.writeln('Processing "' + file.src + '" ');
 
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+      console.log('file.src: ' + file.src);
+      
+      // In case dest is undefined, use the src
+      console.log('file.dest: ' + file.dest);
+
     });
   });
 

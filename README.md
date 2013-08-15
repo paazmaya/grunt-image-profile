@@ -2,12 +2,16 @@
 
 > A Grunt task for working with image metadata profiles via ImageMagick
 
-See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles) for more details about what is done internally.
+See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)
+for more details about what is done internally.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
+[Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create 
+a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. 
+Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-image-profile --save-dev
@@ -22,8 +26,8 @@ grunt.loadNpmTasks('grunt-image-profile');
 ## The "image_profile" task
 
 ### Overview
-In your project's Gruntfile, add a section named `image_profile` to the data object passed into `grunt.initConfig()` and configure
-according to the multi task configuration styles.
+In your project's Gruntfile, add a section named `image_profile` to the data object passed into 
+`grunt.initConfig()` and configure according to the multi task configuration styles.
 
 ```js
 grunt.initConfig({
@@ -40,55 +44,116 @@ grunt.initConfig({
 })
 ```
 
+
 ### Options
 
 #### options.iptc
 Type: `Object`
-Example: `{ '2#80#Byline': 'Juga Paazmaya'}`
+
+Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
 
 Collection of keys and their values to be used as IPTC based profile.
 
-#### options.punctuation
+#### options.convertbin
 Type: `String`
-Default value: `'.'`
 
-A string value that is used to do something else with whatever else.
+Default value: `'convert'`
+
+File path of the `convert` binary from ImageMagick. Use this option to set the path of the binary
+in case it is not found in the `PATH` of the current environment.
+
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+Please note that while most of the examples have empty `options` object, nothing will be written
+to the images in case it is used as such.
+
+#### Source and destinations
+
+The `files` object can be used to set the source and destination of the image files.
 
 ```js
 grunt.initConfig({
   image_profile: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    different: {
+      options: {},
+      files: {
+        'dest/image.jpg': 'src/image.jpg'
+      }
+    }
+  }
 })
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In case the `src` property is used instead, the metadata will be written directly on the source image files.
 
 ```js
 grunt.initConfig({
   image_profile: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
+    same_file: {
+      options: {},
+      src: [
+        'image.jpg'
+      ]
+    }
+  }
+})
+```
+
+Globbing can also be used, in which case the destination can be set as a directory.
+
+```js
+grunt.initConfig({
+  image_profile: {
+    different: {
+      options: {},
+      files: {
+        'dest/': 'src/*.jpg'
+      }
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    write_on_original: {
+      options: {},
+      src: [
+        'path/*.jpg'
+      ]
+    }
+  }
+})
+```
+
+#### Using with IPTC Options
+
+This example adds the given [IPTC](http://www.iptc.org/site/Home/) values to the JPEG files found with the source glob.
+
+Please keep in mind that most of the keys start with `2#`.
+
+Please see [IPTC Photo Metadata Standard, 2010-07-08](http://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata-201007_1.pdf)
+for possible keys.
+
+```js
+grunt.initConfig({
+  image_profile: {
+    location: {
+      options: {
+        iptc: {
+          '2#90#City': 'Helsinki',
+          '2#101#Country/Primary Location Name': 'Finland',
+          '2#95#Province/State': 'Uusimaa',
+        }
+      },
+      src: ['src/**/*.jpg']
+    }
+  }
 })
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+
+In lieu of a formal styleguide, take care to maintain the existing coding style. 
+Add unit tests for any new or changed functionality. 
+Lint and test your code using [Grunt](http://gruntjs.com/).
+
 
 ## Release History
+
 _(Nothing yet)_

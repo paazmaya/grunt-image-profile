@@ -11,8 +11,11 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('image_profile', 'Working with image metadata profiles via ImageMagick', function() {
 
-    // Defaults, if any
-    var options = this.options({});
+    var done = this.async(),
+      commands = [],
+      options = this.options({
+        convertbin: 'convert'
+      });
     
     // Temporary profile file
     if (options.hasOwnProperty('iptc')) {
@@ -29,15 +32,49 @@ module.exports = function(grunt) {
 
 
     this.files.forEach(function(file) {
-      
-      grunt.log.writeln('Processing "' + file.src + '" ');
-
-      console.log('file.src: ' + file.src);
+      var args = [
+        file.src
+      ];
       
       // In case dest is undefined, use the src
-      console.log('file.dest: ' + file.dest);
+      var dest = file.dest || file.src;
+      
 
+      commands.push(args);      
     });
+    
+    var next = function () {
+      if (commands.length > 0) {
+        looper(commands.pop());
+      }
+      else {
+        done();
+      }
+    };
+
+    var looper = function (args) {
+
+      console.log('convert ' + args.join(' '));
+
+      var child = grunt.util.spawn({
+        cmd: options.convertbin,
+        args: args
+      }, function (error, result, code) {
+        if (error) {
+          //throw error;
+        }
+        grunt.log.writeln(result.stdout);
+        grunt.log.writeln(result.stderr);
+        grunt.log.writeln(code + ' - ' + result);
+        if (code !== 0) {
+          //return grunt.warn(String(code));
+        }
+        next();
+      });
+    };
+
+    // Start looping.
+    next();
   });
 
 };

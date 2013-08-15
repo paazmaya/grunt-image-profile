@@ -27,6 +27,14 @@ module.exports = function(grunt) {
     clean: {
       tests: ['tmp'],
     },
+    
+    // Copy files needed for tests
+    copy: {
+      location: {
+        src: 'test/fixtures/no-copyright.jpg',
+        dest: 'tmp/location.jpg'
+      }
+    },
 
     // Configuration to be run (and then tested).
     image_profile: {
@@ -43,7 +51,7 @@ module.exports = function(grunt) {
       
       location: {
         options: {},
-        src: ['test/fixtures/no-copyright.jpg']
+        src: ['tmp/location.jpg'] // Copied in copy:location task
       }
     },
 
@@ -61,10 +69,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'image_profile', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'copy', 'image_profile', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

@@ -2,6 +2,8 @@
 
 > A Grunt task for working with image metadata profiles via ImageMagick
 
+[![Build Status](https://travis-ci.org/paazmaya/grunt-image-profile.png?branch=master)](https://travis-ci.org/paazmaya/grunt-image-profile)
+
 See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)
 for more details about what is done internally.
 

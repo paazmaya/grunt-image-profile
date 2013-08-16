@@ -33,9 +33,9 @@ exports.image_profile = {
 
     var actual = grunt.file.read('tmp/copyright.iptc');
     var expected = grunt.file.read('test/expected/copyright.iptc');
-    test.equal(actual, expected, 'IPTC profile file matches');
+    test.equal(actual, expected, 'Temporarily created IPTC profile file is correct');
     
-    // Does the image now contain the metadat?
+    // Does the image now contain the metadata?
 
     test.done();
   },

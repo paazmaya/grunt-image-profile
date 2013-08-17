@@ -169,4 +169,5 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
-* 2013-08-18    v0.1.1    Initial release which can only write IPTC profiles
+* 2013-08-18    v0.1.1    Running tests just for IPTC usage
+* 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles

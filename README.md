@@ -67,7 +67,7 @@ Collection of keys and their values to be used as IPTC based profile.
 #### options.exif
 Type: `Object`
 
-Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
+Example: `{ 'GPSLatitude': '60/1, 192322/10000, 0/1' }`
 
 EXIF data
 
@@ -169,4 +169,4 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
-* 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles
+* 2013-08-18    v0.1.1    Initial release which can only write IPTC profiles

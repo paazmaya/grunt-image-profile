@@ -62,6 +62,7 @@ module.exports = function(grunt) {
         args.push('8BIMTEXT:' + iptcFile);
         args.push(dest);
       }
+      /*
       if (options.hasOwnProperty('exif')) {
         args.push('+profile');
         args.push('EXIF');
@@ -69,6 +70,7 @@ module.exports = function(grunt) {
         args.push('EXIFTEXT:' + exifFile);
         args.push(dest);
       }
+      */
 
       commands.push(args);
     });

@@ -15,11 +15,14 @@ module.exports = function(grunt) {
       commands = [],
       options = this.options({
         convertbin: 'convert'
-      });
-    
+      }),
+      iptcFile,
+      exifFile;
+
     // Temporary profile file
     if (options.hasOwnProperty('iptc')) {
       // Create IPTC file
+      iptcFile = 'tmp/' + this.target + '.iptc';
       var iptcOptions = options.iptc;
       var iptcContent = [];
       for (var key in iptcOptions) {
@@ -27,7 +30,20 @@ module.exports = function(grunt) {
           iptcContent.push(key + '="' + iptcOptions[key] + '"');
         }
       }
-      grunt.file.write('tmp/' + this.target + '.iptc', iptcContent.join("\n"));
+      grunt.file.write(iptcFile, iptcContent.join("\n"));
+    }
+
+    if (options.hasOwnProperty('exif')) {
+      // Create EXIF file
+      exifFile = 'tmp/' + this.target + '.exif';
+      var exifOptions = options.exif;
+      var exifContent = [];
+      for (var key in exifOptions) {
+        if (exifOptions.hasOwnProperty(key)) {
+          exifContent.push('exif:' + key + '=' + exifOptions[key]);
+        }
+      }
+      grunt.file.write(exifFile, exifContent.join("\n"));
     }
 
 
@@ -35,14 +51,28 @@ module.exports = function(grunt) {
       var args = [
         file.src
       ];
-      
+
       // In case dest is undefined, use the src
       var dest = file.dest || file.src;
-      
 
-      commands.push(args);      
+      if (options.hasOwnProperty('iptc')) {
+        args.push('+profile');
+        args.push('8BIM');
+        args.push('-profile');
+        args.push('8BIMTEXT:' + iptcFile);
+        args.push(dest);
+      }
+      if (options.hasOwnProperty('exif')) {
+        args.push('+profile');
+        args.push('EXIF');
+        args.push('-profile');
+        args.push('EXIFTEXT:' + exifFile);
+        args.push(dest);
+      }
+
+      commands.push(args);
     });
-    
+
     var next = function () {
       if (commands.length > 0) {
         looper(commands.pop());

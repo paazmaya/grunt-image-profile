@@ -11,8 +11,8 @@ for more details about what is done internally.
 This plugin requires Grunt `~0.4.1`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
-[Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create 
-a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. 
+[Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create
+a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins.
 Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
@@ -28,7 +28,7 @@ grunt.loadNpmTasks('grunt-image-profile');
 ## The "image_profile" task
 
 ### Overview
-In your project's Gruntfile, add a section named `image_profile` to the data object passed into 
+In your project's Gruntfile, add a section named `image_profile` to the data object passed into
 `grunt.initConfig()` and configure according to the multi task configuration styles.
 
 ```js
@@ -49,13 +49,6 @@ grunt.initConfig({
 
 ### Options
 
-#### options.iptc
-Type: `Object`
-
-Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
-
-Collection of keys and their values to be used as IPTC based profile.
-
 #### options.convertbin
 Type: `String`
 
@@ -64,6 +57,19 @@ Default value: `'convert'`
 File path of the `convert` binary from ImageMagick. Use this option to set the path of the binary
 in case it is not found in the `PATH` of the current environment.
 
+#### options.iptc
+Type: `Object`
+
+Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
+
+Collection of keys and their values to be used as IPTC based profile.
+
+#### options.exif
+Type: `Object`
+
+Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
+
+EXIF data
 
 ### Usage Examples
 
@@ -149,13 +155,18 @@ grunt.initConfig({
 })
 ```
 
+### Using with EXIF options
+
+http://www.exif.org/specifications.html
+
+
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style. 
-Add unit tests for any new or changed functionality. 
+In lieu of a formal styleguide, take care to maintain the existing coding style.
+Add unit tests for any new or changed functionality.
 Lint and test your code using [Grunt](http://gruntjs.com/).
 
 
 ## Release History
 
-_(Nothing yet)_
+* 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles

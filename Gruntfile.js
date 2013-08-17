@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     clean: {
       tests: ['tmp'],
     },
-    
+
     // Copy files needed for tests
     copy: {
       location: {
@@ -48,9 +48,16 @@ module.exports = function(grunt) {
           'tmp/copyright.jpg': ['test/fixtures/no-copyright.jpg'],
         },
       },
-      
+
       location: {
-        options: {},
+        options: {
+          exif: {
+            'GPSLatitude': '60/1, 192322/10000, 0/1',
+            'GPSLatitudeRef': 'N',
+            'GPSLongitude': '24/1, 26125/10000, 0/1',
+            'GPSLongitudeRef': 'E'
+          }
+        },
         src: ['tmp/location.jpg'] // Copied in copy:location task
       }
     },

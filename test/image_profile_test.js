@@ -27,22 +27,23 @@ exports.image_profile = {
     // setup here if necessary
     done();
   },
-  
+
   copyright: function(test) {
     test.expect(1);
 
     var actual = grunt.file.read('tmp/copyright.iptc');
     var expected = grunt.file.read('test/expected/copyright.iptc');
     test.equal(actual, expected, 'Temporarily created IPTC profile file is correct');
-    
+
     // Does the image now contain the metadata?
+    // convert copyright.jpg IPTCTEXT:copyright-written.iptc
 
     test.done();
   },
-  
+
   location: function(test) {
     test.expect(0);
-    
+
     test.done();
   }
 };

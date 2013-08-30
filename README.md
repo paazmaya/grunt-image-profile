@@ -74,7 +74,7 @@ EXIF data
 #### options.save
 Type: `Array`
 
-Example: `[ 'exif', 'iptc' ]`
+Example: `[ 'xmp', 'iptc' ]`
 
 Read the given profiles from the source images and write them to text files that have same name and location
 as the source image, while the suffix is determined by the given profile type.
@@ -174,7 +174,8 @@ Please see [EXIF specifications](http://www.exif.org/specifications.html) for fu
 
 With the `save` options it is possible to define the profiles that would be read from the given source image and saved to text files.
 
-This example will save EXIF and IPTC profiles of the source image and store them as `profiles/image.exif` and `profiles/image.iptc`.
+This example will save [XMP](http://www.adobe.com/products/xmp/) and IPTC profiles of the source
+image and store them as `profiles/image.xmp` and `profiles/image.iptc`.
 
 ```js
 grunt.initConfig({
@@ -182,7 +183,7 @@ grunt.initConfig({
     save_profiles: {
       options: {
         save: [
-          'exif',
+          'xmp',
           'iptc'
         ]
       },
@@ -203,6 +204,7 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
+* 2013-09-01    v0.2.0    Ability to save existing profiles from images to text files
 * 2013-08-30    v0.1.2    Files array globbing was not working
 * 2013-08-18    v0.1.1    Running tests just for IPTC usage
 * 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles

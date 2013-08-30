@@ -48,15 +48,19 @@ exports.image_profile = {
 
     test.done();
   },
-  
+
   save_profiles: function(test) {
-    test.expect(1);
+    test.expect(2);
 
     var actual = grunt.file.read('tmp/jikishin-family.iptc');
     var expected = grunt.file.read('test/expected/jikishin-family.iptc');
     test.equal(actual, expected, 'IPTC profile was saved correctly');
-    
+
+    actual = grunt.file.read('tmp/jikishin-family.xmp');
+    expected = grunt.file.read('test/expected/jikishin-family.xmp');
+    test.equal(actual, expected, 'XMP profile was saved correctly');
+
     test.done();
   }
-  
+
 };

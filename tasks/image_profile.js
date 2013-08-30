@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       }
       grunt.file.write(exifFile, exifContent.join("\n"));
     }
-    
+
 
     var argumentSet = [];
     if (options.hasOwnProperty('iptc')) {
@@ -65,32 +65,39 @@ module.exports = function(grunt) {
       args.push(dest);
     }
     */
-    
+
     // No point of iteration files if there is nothing to do
     if (argumentSet.length === 0 && !options.hasOwnProperty('save')) {
       return;
     }
-    
+
     var profileKeys = {
-      'exif': 'EXIF',
-      'iptc': 'IPTCTEXT'
+      'xmp': 'XMP:',
+      'iptc': 'IPTCTEXT:'
     };
-    
+
     // file set, each file, profile options
     this.files.forEach(function(file) {
       file.src.forEach(function(src) {
         argumentSet.forEach(function(args) {
           // In case dest is undefined, use the src
-          commands.push([src].concat(args, (file.dest || src)));
+          //commands.push([src].concat(args, (file.dest || src)));
         });
-        
+
         if (options.hasOwnProperty('save')) {
           // Profile saving
           options.save.forEach(function(profile) {
             // If the destination is set, it is supposed to be the output directory
-            var dest = file.dest + '.' + profile;
+            var dest = '';
+            if (file.dest) {
+              dest = file.dest + src.substring(src.lastIndexOf('/') || 0, src.lastIndexOf('.')) + '.' + profile;
+            }
+            else {
+              dest = src.substring(0, src.lastIndexOf('.')) + '.' + profile;
+            }
+
             var key = profileKeys[profile];
-            commands.push([src, key + ':' + dest]);
+            commands.push([src, key + dest]);
           });
         }
       });

@@ -1,7 +1,7 @@
 {
   "name": "grunt-image-profile",
   "description": "A Grunt task for working with image metadata profiles via ImageMagick",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "homepage": "https://github.com/paazmaya/grunt-image-profile",
   "author": {
     "name": "Juga Paazmaya",

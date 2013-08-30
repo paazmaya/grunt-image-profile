@@ -155,7 +155,7 @@ grunt.initConfig({
 })
 ```
 
-### Using with EXIF options
+#### Using with EXIF options
 
 http://www.exif.org/specifications.html
 
@@ -169,5 +169,6 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
+* 2013-08-30    v0.1.2    Files array globbing was not working
 * 2013-08-18    v0.1.1    Running tests just for IPTC usage
 * 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles

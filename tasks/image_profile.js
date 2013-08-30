@@ -47,20 +47,17 @@ module.exports = function(grunt) {
     }
 
 
+    // file set
     this.files.forEach(function(file) {
-      var args = [
-        file.src
-      ];
-
-      // In case dest is undefined, use the src
-      var dest = file.dest || file.src;
+      
+      var args = [];
 
       if (options.hasOwnProperty('iptc')) {
         args.push('+profile');
         args.push('8BIM');
         args.push('-profile');
         args.push('8BIMTEXT:' + iptcFile);
-        args.push(dest);
+       
       }
       /*
       if (options.hasOwnProperty('exif')) {
@@ -71,8 +68,17 @@ module.exports = function(grunt) {
         args.push(dest);
       }
       */
+      
+      // No point of iteration files if there is nothing to do
+      if (args.length === 0) {
+        return;
+      }
+      
+      file.src.forEach(function(src) {
+        // In case dest is undefined, use the src
+        commands.push([src].concat(args, (file.dest || src)));
+      });
 
-      commands.push(args);
     });
 
     var next = function () {

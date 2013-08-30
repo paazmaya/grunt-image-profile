@@ -45,40 +45,55 @@ module.exports = function(grunt) {
       }
       grunt.file.write(exifFile, exifContent.join("\n"));
     }
+    
 
-
-    // file set
-    this.files.forEach(function(file) {
-      
+    var argumentSet = [];
+    if (options.hasOwnProperty('iptc')) {
       var args = [];
-
-      if (options.hasOwnProperty('iptc')) {
-        args.push('+profile');
-        args.push('8BIM');
-        args.push('-profile');
-        args.push('8BIMTEXT:' + iptcFile);
-       
-      }
-      /*
-      if (options.hasOwnProperty('exif')) {
-        args.push('+profile');
-        args.push('EXIF');
-        args.push('-profile');
-        args.push('EXIFTEXT:' + exifFile);
-        args.push(dest);
-      }
-      */
-      
-      // No point of iteration files if there is nothing to do
-      if (args.length === 0) {
-        return;
-      }
-      
+      args.push('+profile');
+      args.push('8BIM');
+      args.push('-profile');
+      args.push('8BIMTEXT:' + iptcFile);
+      argumentSet.push(args);
+    }
+    /*
+    if (options.hasOwnProperty('exif')) {
+      args.push('+profile');
+      args.push('EXIF');
+      args.push('-profile');
+      args.push('EXIFTEXT:' + exifFile);
+      args.push(dest);
+    }
+    */
+    
+    // No point of iteration files if there is nothing to do
+    if (argumentSet.length === 0 && !options.hasOwnProperty('save')) {
+      return;
+    }
+    
+    var profileKeys = {
+      'exif': 'EXIF',
+      'iptc': 'IPTCTEXT'
+    };
+    
+    // file set, each file, profile options
+    this.files.forEach(function(file) {
       file.src.forEach(function(src) {
-        // In case dest is undefined, use the src
-        commands.push([src].concat(args, (file.dest || src)));
+        argumentSet.forEach(function(args) {
+          // In case dest is undefined, use the src
+          commands.push([src].concat(args, (file.dest || src)));
+        });
+        
+        if (options.hasOwnProperty('save')) {
+          // Profile saving
+          options.save.forEach(function(profile) {
+            // If the destination is set, it is supposed to be the output directory
+            var dest = file.dest + '.' + profile;
+            var key = profileKeys[profile];
+            commands.push([src, key + ':' + dest]);
+          });
+        }
       });
-
     });
 
     var next = function () {

@@ -59,6 +59,18 @@ module.exports = function(grunt) {
           }
         },
         src: ['tmp/location.jpg'] // Copied in copy:location task
+      },
+      
+      save_profiles: {
+        options: {
+          save: [
+            'exif',
+            'iptc'
+          ]
+        },
+        files: {
+          'tmp/': ['test/fixtures/jikishin-family.jpg']
+        }
       }
     },
 

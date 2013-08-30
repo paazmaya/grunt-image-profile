@@ -71,6 +71,14 @@ Example: `{ 'GPSLatitude': '60/1, 192322/10000, 0/1' }`
 
 EXIF data
 
+#### options.save
+Type: `Array`
+
+Example: `[ 'exif', 'iptc' ]`
+
+Read the given profiles from the source images and write them to text files that have same name and location
+as the source image, while the suffix is determined by the given profile type.
+
 ### Usage Examples
 
 Please note that while most of the examples have empty `options` object, nothing will be written
@@ -157,8 +165,34 @@ grunt.initConfig({
 
 #### Using with EXIF options
 
-http://www.exif.org/specifications.html
+**Notice**: It would seem that ImageMagick cannot write EXIF data to images at the moments. However reading is possible.
 
+Please see [EXIF specifications](http://www.exif.org/specifications.html) for further details.
+
+
+#### Save existing profiles
+
+With the `save` options it is possible to define the profiles that would be read from the given source image and saved to text files.
+
+This example will save EXIF and IPTC profiles of the source image and store them as `profiles/image.exif` and `profiles/image.iptc`.
+
+```js
+grunt.initConfig({
+  image_profile: {
+    save_profiles: {
+      options: {
+        save: [
+          'exif',
+          'iptc'
+        ]
+      },
+      files: {
+        'profiles/': ['src/image.jpg']
+      }
+    }
+  }
+})
+```
 
 ## Contributing
 

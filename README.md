@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/paazmaya/grunt-image-profile.png?branch=master)](https://travis-ci.org/paazmaya/grunt-image-profile)
 
+[![Dependency Status](https://gemnasium.com/paazmaya/grunt-image-profile.png)](https://gemnasium.com/paazmaya/grunt-image-profile)
+
 See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)
 for more details about what is done internally. [Also about the supported formats](http://www.imagemagick.org/script/formats.php#embedded)
 

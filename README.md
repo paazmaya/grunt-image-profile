@@ -210,3 +210,7 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 * 2013-08-30    v0.1.2    Files array globbing was not working
 * 2013-08-18    v0.1.1    Running tests just for IPTC usage
 * 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paazmaya/grunt-image-profile/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

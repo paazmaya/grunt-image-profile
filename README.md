@@ -3,8 +3,9 @@
 > A Grunt task for working with image metadata profiles via ImageMagick
 
 [![Build Status](https://travis-ci.org/paazmaya/grunt-image-profile.png?branch=master)](https://travis-ci.org/paazmaya/grunt-image-profile)
-
+[![Code Climate](https://codeclimate.com/github/paazmaya/grunt-image-profile.png)](https://codeclimate.com/github/paazmaya/grunt-image-profile)
 [![Dependency Status](https://gemnasium.com/paazmaya/grunt-image-profile.png)](https://gemnasium.com/paazmaya/grunt-image-profile)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paazmaya/grunt-image-profile/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)
 for more details about what is done internally. [Also about the supported formats](http://www.imagemagick.org/script/formats.php#embedded)
@@ -212,5 +213,4 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 * 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paazmaya/grunt-image-profile/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

@@ -12,6 +12,7 @@ See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/
 for more details about what is done internally. [Also about the supported formats](http://www.imagemagick.org/script/formats.php#embedded)
 
 ## Getting Started
+
 This plugin requires Grunt `~0.4.1`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
@@ -214,4 +215,9 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 * 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles
 
 
+## License
+
+Copyright (c) 2013 Juga Paazmaya <olavic@gmail.com>
+
+Licensed under the [MIT license](LICENSE-MIT).
 

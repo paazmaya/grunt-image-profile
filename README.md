@@ -6,6 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/paazmaya/grunt-image-profile.png)](https://codeclimate.com/github/paazmaya/grunt-image-profile)
 [![Dependency Status](https://gemnasium.com/paazmaya/grunt-image-profile.png)](https://gemnasium.com/paazmaya/grunt-image-profile)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paazmaya/grunt-image-profile/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)
 for more details about what is done internally. [Also about the supported formats](http://www.imagemagick.org/script/formats.php#embedded)

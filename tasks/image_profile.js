@@ -11,13 +11,13 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('image_profile', 'Working with image metadata profiles via ImageMagick', function() {
 
-    var done = this.async(),
-      commands = [],
-      options = this.options({
-        convertbin: 'convert'
-      }),
-      iptcFile,
-      exifFile;
+    var done = this.async();
+    var commands = [];
+    var options = this.options({
+      convertbin: 'convert'
+    });
+    var iptcFile;
+    var exifFile;
 
     // Temporary profile file
     if (options.hasOwnProperty('iptc')) {
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
           iptcContent.push(key + '="' + iptcOptions[key] + '"');
         }
       }
-      grunt.file.write(iptcFile, iptcContent.join("\n"));
+      grunt.file.write(iptcFile, iptcContent.join('\n'));
     }
 
     if (options.hasOwnProperty('exif')) {
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
           exifContent.push('exif:' + key + '=' + exifOptions[key]);
         }
       }
-      grunt.file.write(exifFile, exifContent.join("\n"));
+      grunt.file.write(exifFile, exifContent.join('\n'));
     }
 
 
@@ -114,9 +114,9 @@ module.exports = function(grunt) {
 
     var looper = function (args) {
 
-      console.log('convert ' + args.join(' '));
+      grunt.log.writeln('convert ' + args.join(' '));
 
-      var child = grunt.util.spawn({
+      grunt.util.spawn({
         cmd: options.convertbin,
         args: args
       }, function (error, result, code) {

@@ -12,20 +12,20 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    jshint: {
-      all: [
+    eslint: {
+      options: {
+        config: 'eslint.json'
+      },
+      target: [
         'Gruntfile.js',
         'tasks/*.js',
-        '<%= nodeunit.tests %>',
-      ],
-      options: {
-        jshintrc: '.jshintrc',
-      },
+        '<%= nodeunit.tests %>'
+      ]
     },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp'],
+      tests: ['tmp']
     },
 
     // Copy files needed for tests
@@ -45,8 +45,8 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'tmp/copyright.jpg': ['test/fixtures/no-copyright.jpg'],
-        },
+          'tmp/copyright.jpg': ['test/fixtures/no-copyright.jpg']
+        }
       },
 
       location: {
@@ -76,8 +76,8 @@ module.exports = function(grunt) {
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js'],
-    },
+      tests: ['test/*_test.js']
+    }
 
   });
 
@@ -85,16 +85,16 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'copy', 'image_profile:copyright', 'image_profile:save_profiles', 'nodeunit']);
+  grunt.registerTask('test', ['eslint', 'clean', 'copy', 'image_profile:copyright', 'image_profile:save_profiles', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['test']);
 
 };

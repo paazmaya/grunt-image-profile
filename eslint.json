@@ -1,7 +1,7 @@
 {
   "rules": {
     "block-scoped-var": 0,
-    "brace-style": 2,
+    "brace-style": ["2", "stroustrup"],
     "camelcase": 1,
     "complexity": [0, 12],
     "consistent-return": 2,
@@ -104,6 +104,7 @@
     "strict": 2,
     "use-isnan": 2,
     "valid-jsdoc": 1,
+    "valid-typeof": 2,
     "wrap-iife": 0,
     "wrap-regex": 0
   },

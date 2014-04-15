@@ -79,11 +79,12 @@ module.exports = function(grunt) {
     // file set, each file, profile options
     this.files.forEach(function(file) {
       file.src.forEach(function(src) {
+        /*
         argumentSet.forEach(function(args) {
           // In case dest is undefined, use the src
           //commands.push([src].concat(args, (file.dest || src)));
         });
-
+        */
         if (options.hasOwnProperty('save')) {
           // Profile saving
           options.save.forEach(function(profile) {

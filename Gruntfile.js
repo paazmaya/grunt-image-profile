@@ -2,10 +2,9 @@
  * grunt-image-profile
  * https://github.com/paazmaya/grunt-image-profile
  *
- * Copyright (c) 2013 Juga Paazmaya
+ * Copyright (c) Juga Paazmaya <olavic@gmail.com>
  * Licensed under the MIT license.
  */
-
 'use strict';
 
 module.exports = function(grunt) {
@@ -15,7 +14,7 @@ module.exports = function(grunt) {
     eslint: {
       options: {
         config: 'eslint.json',
-        format: 'compact'
+        format: 'stylish'
       },
       target: [
         'Gruntfile.js',
@@ -82,20 +81,14 @@ module.exports = function(grunt) {
 
   });
 
-  // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
 
-  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-copy');
-
-  // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-  // plugin's task(s), then test the result.
+  
   grunt.registerTask('test', ['eslint', 'clean', 'copy', 'image_profile:copyright', 'image_profile:save_profiles', 'nodeunit']);
 
-  // By default, lint and run all tests.
   grunt.registerTask('default', ['test']);
-
 };

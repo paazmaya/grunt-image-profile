@@ -1,15 +1,15 @@
-/*
+/**
  * grunt-image-profile
  * https://github.com/paazmaya/grunt-image-profile
  *
- * Copyright (c) 2013 Juga Paazmaya
+ * Copyright (c) Juga Paazmaya
  * Licensed under the MIT license.
  */
+'use strict';
 
-module.exports = function(grunt) {
-  'use strict';
+module.exports = function image_profile(grunt) {
 
-  grunt.registerMultiTask('image_profile', 'Working with image metadata profiles via ImageMagick', function() {
+  grunt.registerMultiTask('image_profile', 'Working with image metadata profiles via ImageMagick', function register() {
 
     var done = this.async();
     var commands = [];
@@ -77,8 +77,8 @@ module.exports = function(grunt) {
     };
 
     // file set, each file, profile options
-    this.files.forEach(function(file) {
-      file.src.forEach(function(src) {
+    this.files.forEach(function filesEach(file) {
+      file.src.forEach(function srcEach(src) {
         /*
         argumentSet.forEach(function(args) {
           // In case dest is undefined, use the src
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         */
         if (options.hasOwnProperty('save')) {
           // Profile saving
-          options.save.forEach(function(profile) {
+          options.save.forEach(function saveEach(profile) {
             // If the destination is set, it is supposed to be the output directory
             var dest = '';
             if (file.dest) {
@@ -104,23 +104,14 @@ module.exports = function(grunt) {
       });
     });
 
-    var next = function () {
-      if (commands.length > 0) {
-        looper(commands.pop());
-      }
-      else {
-        done();
-      }
-    };
-
-    var looper = function (args) {
+    var looper = function looper(args, next) {
 
       grunt.log.writeln('convert ' + args.join(' '));
 
       grunt.util.spawn({
         cmd: options.convertbin,
         args: args
-      }, function (error, result, code) {
+      }, function handler(error, result, code) {
         if (error) {
           throw error;
         }
@@ -130,8 +121,17 @@ module.exports = function(grunt) {
         if (code !== 0) {
           return grunt.warn(String(code));
         }
-        next();
+        next.call(this);
       });
+    };
+
+    var next = function next() {
+      if (commands.length > 0) {
+        looper(commands.pop(), next);
+      }
+      else {
+        done();
+      }
     };
 
     // Start looping.

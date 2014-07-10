@@ -1,4 +1,4 @@
-/*
+/**
  * grunt-image-profile
  * https://github.com/paazmaya/grunt-image-profile
  *
@@ -85,7 +85,7 @@ module.exports = function gruntConf(grunt) {
   grunt.loadTasks('tasks');
 
   require('jit-grunt')(grunt);
-  
+
   grunt.registerTask('test', ['eslint', 'clean', 'copy', 'image_profile:copyright', 'image_profile:save_profiles', 'nodeunit']);
 
   grunt.registerTask('default', ['test']);

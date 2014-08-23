@@ -13,7 +13,7 @@ for more details about what is done internally. [Also about the supported format
 
 ## Getting Started
 
-This plugin requires Grunt `~0.4.1`
+This plugin requires Grunt `~0.4`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
 [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create
@@ -209,15 +209,15 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
-* 2013-09-01    v0.2.0    Ability to save existing profiles from images to text files
-* 2013-08-30    v0.1.2    Files array globbing was not working
-* 2013-08-18    v0.1.1    Running tests just for IPTC usage
-* 2013-08-18    v0.1.0    Initial release which can only write IPTC profiles
+* 2013-09-01      v0.2.0      Ability to save existing profiles from images to text files
+* 2013-08-30      v0.1.2      Files array globbing was not working
+* 2013-08-18      v0.1.1      Running tests just for IPTC usage
+* 2013-08-18      v0.1.0      Initial release which can only write IPTC profiles
 
 
 ## License
 
-Copyright (c) 2013 Juga Paazmaya <olavic@gmail.com>
+Copyright (c) Juga Paazmaya <olavic@gmail.com>
 
 Licensed under the [MIT license](LICENSE-MIT).
 

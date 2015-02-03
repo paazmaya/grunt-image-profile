@@ -6,7 +6,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/paazmaya/grunt-image-profile.svg?style=flat-square)](https://codeclimate.com/github/paazmaya/grunt-image-profile)
 [![Dependency Status](https://img.shields.io/gemnasium/paazmaya/grunt-image-profile.svg?style=flat-square)](https://gemnasium.com/paazmaya/grunt-image-profile)
 [![Built with Grunt](http://img.shields.io/badge/Grunt-0.4-blue.svg?style=flat-square)](http://gruntjs.com/)
-[![Analytics](https://ga-beacon.appspot.com/UA-2643697-15/grunt-image-profile/index)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-2643697-15/grunt-image-profile/index?flat)](https://github.com/igrigorik/ga-beacon)
 
 
 See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)

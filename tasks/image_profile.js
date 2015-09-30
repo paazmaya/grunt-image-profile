@@ -24,12 +24,9 @@ module.exports = function image_profile(grunt) {
       // Create IPTC file
       iptcFile = 'tmp/' + this.target + '.iptc';
       var iptcOptions = options.iptc;
-      var iptcContent = [];
-      for (var key in iptcOptions) {
-        if (iptcOptions.hasOwnProperty(key)) {
-          iptcContent.push(key + '="' + iptcOptions[key] + '"');
-        }
-      }
+      var iptcContent = Object.keys(iptcOptions).map(function mapIptc(key) {
+        return key + '="' + iptcOptions[key] + '"';
+      });
       grunt.file.write(iptcFile, iptcContent.join('\n'));
     }
 
@@ -37,15 +34,11 @@ module.exports = function image_profile(grunt) {
       // Create EXIF file
       exifFile = 'tmp/' + this.target + '.exif';
       var exifOptions = options.exif;
-      var exifContent = [];
-      for (var key in exifOptions) {
-        if (exifOptions.hasOwnProperty(key)) {
-          exifContent.push('exif:' + key + '=' + exifOptions[key]);
-        }
-      }
+      var exifContent = Object.keys(exifOptions).map(function mapExif(key) {
+        return 'exif:' + key + '=' + exifOptions[key];
+      });
       grunt.file.write(exifFile, exifContent.join('\n'));
     }
-
 
     var argumentSet = [];
     if (options.hasOwnProperty('iptc')) {
@@ -72,8 +65,8 @@ module.exports = function image_profile(grunt) {
     }
 
     var profileKeys = {
-      'xmp': 'XMP:',
-      'iptc': 'IPTCTEXT:'
+      xmp: 'XMP:',
+      iptc: 'IPTCTEXT:'
     };
 
     // file set, each file, profile options

@@ -23,10 +23,11 @@
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4.2.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/grunt test"
+    "test": "node_modules/.bin/grunt test",
+    "lint": "grunt eslint"
   },
   "devDependencies": {
     "grunt": "~0.4",

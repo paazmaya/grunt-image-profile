@@ -14,7 +14,7 @@ for more details about what is done internally. [Also about the supported format
 
 ## Getting Started
 
-This plugin requires Grunt `~0.4`
+This plugin requires Grunt `~0.4` and Node.js minimum of `4.2.0`.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
 [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create
@@ -56,6 +56,7 @@ grunt.initConfig({
 ### Options
 
 #### options.convertbin
+
 Type: `String`
 
 Default value: `'convert'`
@@ -64,6 +65,7 @@ File path of the `convert` binary from ImageMagick. Use this option to set the p
 in case it is not found in the `PATH` of the current environment.
 
 #### options.iptc
+
 Type: `Object`
 
 Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
@@ -71,6 +73,7 @@ Example: `{ '2#80#Byline': 'Juga Paazmaya' }`
 Collection of keys and their values to be used as IPTC based profile.
 
 #### options.exif
+
 Type: `Object`
 
 Example: `{ 'GPSLatitude': '60/1, 192322/10000, 0/1' }`
@@ -78,6 +81,7 @@ Example: `{ 'GPSLatitude': '60/1, 192322/10000, 0/1' }`
 EXIF data
 
 #### options.save
+
 Type: `Array`
 
 Example: `[ 'xmp', 'iptc' ]`
@@ -210,17 +214,17 @@ Add unit tests for any new or changed functionality.
 Lint and test your code using [Grunt](http://gruntjs.com/).
 
 
-## Release History
+## Version history
 
-* 2013-09-01      v0.2.0      Ability to save existing profiles from images to text files
-* 2013-08-30      v0.1.2      Files array globbing was not working
-* 2013-08-18      v0.1.1      Running tests just for IPTC usage
-* 2013-08-18      v0.1.0      Initial release which can only write IPTC profiles
+* `v0.2.0` (2013-09-01) Ability to save existing profiles from images to text files
+* `v0.1.2` (2013-08-30) Files array globbing was not working
+* `v0.1.1` (2013-08-18) Running tests just for IPTC usage
+* `v0.1.0` (2013-08-18) Initial release which can only write IPTC profiles
 
 
 ## License
 
-Copyright (c) Juga Paazmaya <paazmaya@yahoo.com>
+Copyright (c) [Juga Paazmaya <paazmaya@yahoo.com>](http://paazmaya.fi)
 
 Licensed under the [MIT license](LICENSE).
 

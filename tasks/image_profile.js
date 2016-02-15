@@ -112,9 +112,11 @@ module.exports = function image_profile(grunt) {
         grunt.log.writeln(result.stderr);
         grunt.log.writeln(code + ' - ' + result);
         if (code !== 0) {
-          return grunt.warn(String(code));
+          grunt.warn(String(code));
         }
-        next.call(this);
+        else {
+          next.call(this);
+        }
       });
     };
 

@@ -14,7 +14,8 @@ for more details about what is done internally. [Also about the supported format
 
 ## Getting Started
 
-This plugin requires Grunt `~0.4` and Node.js minimum of `4.2.0`.
+This plugin requires [Grunt](http://gruntjs.com/) `~0.4` and [Node.js](https://nodejs.org/en/)
+version to be minimum of `4.2.0`, which is the Long Term Support (LTS) version.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
 [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create

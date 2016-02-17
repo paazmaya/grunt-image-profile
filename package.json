@@ -32,7 +32,7 @@
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-cli": "~0.1",
-    "grunt-contrib-clean": "~0.7",
+    "grunt-contrib-clean": "~1.0",
     "grunt-contrib-copy": "~0.8",
     "grunt-eslint": "~18.0",
     "grunt-contrib-nodeunit": "~0.4",

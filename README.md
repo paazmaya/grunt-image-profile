@@ -217,15 +217,19 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Version history
 
-* `v0.2.0` (2013-09-01) Ability to save existing profiles from images to text files
-* `v0.1.2` (2013-08-30) Files array globbing was not working
-* `v0.1.1` (2013-08-18) Running tests just for IPTC usage
-* `v0.1.0` (2013-08-18) Initial release which can only write IPTC profiles
+* `v0.2.0` (2013-09-01)
+  - Ability to save existing profiles from images to text files
+* `v0.1.2` (2013-08-30)
+  - Files array globbing was not working
+* `v0.1.1` (2013-08-18)
+  - Running tests just for IPTC usage
+* `v0.1.0` (2013-08-18)
+  - Initial release which can only write IPTC profiles
 
 
 ## License
 
-Copyright (c) [Juga Paazmaya <paazmaya@yahoo.com>](http://paazmaya.fi)
+Copyright (c) [Juga Paazmaya](http://www.paazmaya.fi) <paazmaya@yahoo.com>
 
 Licensed under the [MIT license](LICENSE).
 

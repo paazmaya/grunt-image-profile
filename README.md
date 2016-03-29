@@ -229,7 +229,7 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## License
 
-Copyright (c) [Juga Paazmaya](http://www.paazmaya.fi) <paazmaya@yahoo.com>
+Copyright (c) [Juga Paazmaya](http://paazmaya.fi) <paazmaya@yahoo.com>
 
 Licensed under the [MIT license](LICENSE).
 

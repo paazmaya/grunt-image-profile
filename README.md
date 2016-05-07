@@ -217,8 +217,15 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Version history
 
-* `v0.2.0` (2013-09-01)
+* `v0.3.0` (2016-05-07)
+  - Use Grunt.js v1.0.0, no smaller
+  - Start using shared ESLint config #7
+* `v0.2.0` (2016-02-22)
   - Ability to save existing profiles from images to text files
+  - Explicitly set files to publish to npm. Ref gruntjs/gruntjs.com#65
+  - Moving to ESLint #4
+  - Plenty of documentation added
+  - Support Grunt.js v1.0.0
 * `v0.1.2` (2013-08-30)
   - Files array globbing was not working
 * `v0.1.1` (2013-08-18)

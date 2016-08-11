@@ -3,8 +3,10 @@ language: node_js
 node_js:
   - "4.2"
   - "6"
-before_script:
-  - npm install babel-eslint
+addons:
+  apt:
+    packages:
+      - imagemagick
 script:
   - npm run lint
   - npm test

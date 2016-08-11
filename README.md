@@ -14,7 +14,8 @@ for more details about what is done internally. [Also about the supported format
 ## Getting Started
 
 This plugin requires [Grunt](http://gruntjs.com/) `~1.0` and [Node.js](https://nodejs.org/en/)
-version to be minimum of `4.2.0`, which is the Long Term Support (LTS) version.
+version to be minimum of `4.2.0`, which is the Long Term Support (LTS) version, and
+[ImageMagick](http://www.imagemagick.org/script/binary-releases.php) installed.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
 [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create

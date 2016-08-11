@@ -8,7 +8,6 @@
 [![Built with Grunt](http://img.shields.io/badge/Grunt-1.0-blue.svg?style=flat-square)](http://gruntjs.com/)
 [![Analytics](https://ga-beacon.appspot.com/UA-2643697-15/grunt-image-profile/index?flat)](https://github.com/igrigorik/ga-beacon)
 
-
 See [ImageMagick documentation about Image Profiles](http://www.imagemagick.org/Usage/formats/#profiles)
 for more details about what is done internally. [Also about the supported formats](http://www.imagemagick.org/script/formats.php#embedded)
 
@@ -217,8 +216,11 @@ Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Version history
 
+* `v0.3.1` (2016-08-11)
+  - Dependencies are sure :tophat: up to date
+  - Use ESLint directly without the Grunt.js plugin
 * `v0.3.0` (2016-05-07)
-  - Use Grunt.js v1.0.0, no smaller
+  - Use Grunt.js `v1.0.0`, no smaller
   - Start using shared ESLint config #7
 * `v0.2.0` (2016-02-22)
   - Ability to save existing profiles from images to text files

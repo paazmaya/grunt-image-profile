@@ -9,19 +9,10 @@
 
 module.exports = function gruntConf(grunt) {
   require('time-grunt')(grunt); // Must be first item
+  require('jit-grunt')(grunt);
 
   // Project configuration.
   grunt.initConfig({
-    eslint: {
-      options: {
-        config: '.eslintrc.json',
-        format: 'stylish'
-      },
-      target: [
-        'Gruntfile.js',
-        'tasks/*.js'
-      ]
-    },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
@@ -83,9 +74,7 @@ module.exports = function gruntConf(grunt) {
 
   grunt.loadTasks('tasks');
 
-  require('jit-grunt')(grunt);
-
-  grunt.registerTask('test', ['eslint', 'clean', 'copy', 'image_profile:copyright', 'image_profile:save_profiles', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'copy', 'image_profile:copyright', 'image_profile:save_profiles', 'nodeunit']);
 
   grunt.registerTask('default', ['test']);
 };

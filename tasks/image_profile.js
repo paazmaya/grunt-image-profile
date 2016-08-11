@@ -11,38 +11,38 @@ module.exports = function image_profile(grunt) {
 
   grunt.registerMultiTask('image_profile', 'Working with image metadata profiles via ImageMagick', function register() {
 
-    var done = this.async();
-    var commands = [];
-    var options = this.options({
+    const done = this.async();
+    const commands = [];
+    const options = this.options({
       convertbin: 'convert'
     });
-    var iptcFile;
-    var exifFile;
+    let iptcFile;
+    let exifFile;
 
     // Temporary profile file
-    if (options.hasOwnProperty('iptc')) {
+    if (Object.prototype.hasOwnProperty.call(options, 'iptc')) {
       // Create IPTC file
       iptcFile = 'tmp/' + this.target + '.iptc';
-      var iptcOptions = options.iptc;
-      var iptcContent = Object.keys(iptcOptions).map(function mapIptc(key) {
+      const iptcOptions = options.iptc;
+      const iptcContent = Object.keys(iptcOptions).map(function mapIptc(key) {
         return key + '="' + iptcOptions[key] + '"';
       });
       grunt.file.write(iptcFile, iptcContent.join('\n'));
     }
 
-    if (options.hasOwnProperty('exif')) {
+    if (Object.prototype.hasOwnProperty.call(options, 'exif')) {
       // Create EXIF file
       exifFile = 'tmp/' + this.target + '.exif';
-      var exifOptions = options.exif;
-      var exifContent = Object.keys(exifOptions).map(function mapExif(key) {
+      const exifOptions = options.exif;
+      const exifContent = Object.keys(exifOptions).map(function mapExif(key) {
         return 'exif:' + key + '=' + exifOptions[key];
       });
       grunt.file.write(exifFile, exifContent.join('\n'));
     }
 
-    var argumentSet = [];
-    if (options.hasOwnProperty('iptc')) {
-      var args = [];
+    const argumentSet = [];
+    if (Object.prototype.hasOwnProperty.call(options, 'iptc')) {
+      const args = [];
       args.push('+profile');
       args.push('8BIM');
       args.push('-profile');
@@ -50,7 +50,7 @@ module.exports = function image_profile(grunt) {
       argumentSet.push(args);
     }
     /*
-    if (options.hasOwnProperty('exif')) {
+    if (Object.prototype.hasOwnProperty.call(options, 'exif')) {
       args.push('+profile');
       args.push('EXIF');
       args.push('-profile');
@@ -60,11 +60,11 @@ module.exports = function image_profile(grunt) {
     */
 
     // No point of iteration files if there is nothing to do
-    if (argumentSet.length === 0 && !options.hasOwnProperty('save')) {
+    if (argumentSet.length === 0 && !Object.prototype.hasOwnProperty.call(options, 'save')) {
       return;
     }
 
-    var profileKeys = {
+    const profileKeys = {
       xmp: 'XMP:',
       iptc: 'IPTCTEXT:'
     };
@@ -78,11 +78,11 @@ module.exports = function image_profile(grunt) {
           //commands.push([src].concat(args, (file.dest || src)));
         });
         */
-        if (options.hasOwnProperty('save')) {
+        if (Object.prototype.hasOwnProperty.call(options, 'save')) {
           // Profile saving
           options.save.forEach(function saveEach(profile) {
             // If the destination is set, it is supposed to be the output directory
-            var dest = '';
+            let dest = '';
             if (file.dest) {
               dest = file.dest + src.substring(src.lastIndexOf('/') || 0, src.lastIndexOf('.')) + '.' + profile;
             }
@@ -90,14 +90,14 @@ module.exports = function image_profile(grunt) {
               dest = src.substring(0, src.lastIndexOf('.')) + '.' + profile;
             }
 
-            var key = profileKeys[profile];
+            const key = profileKeys[profile];
             commands.push([src, key + dest]);
           });
         }
       });
     });
 
-    var looper = function looper(args, next) {
+    const looper = function looper(args, next) {
 
       grunt.log.writeln('convert ' + args.join(' '));
 
@@ -120,7 +120,7 @@ module.exports = function image_profile(grunt) {
       });
     };
 
-    var next = function next() {
+    const next = function next() {
       if (commands.length > 0) {
         looper(commands.pop(), next);
       }

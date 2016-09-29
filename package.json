@@ -30,8 +30,8 @@
     "lint": "eslint -c .eslintrc.json Gruntfile.js tasks"
   },
   "devDependencies": {
-    "eslint": "^3.4.0",
-    "eslint-config-paazmaya": "^2.3.1",
+    "eslint": "^3.6.1",
+    "eslint-config-paazmaya": "^3.0.0",
     "grunt": "~1.0",
     "grunt-contrib-clean": "~1.0",
     "grunt-contrib-copy": "~1.0",

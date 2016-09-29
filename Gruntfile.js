@@ -5,6 +5,7 @@
  * Copyright (c) Juga Paazmaya <paazmaya@yahoo.com> (https://paazmaya.fi)
  * Licensed under the MIT license.
  */
+
 'use strict';
 
 module.exports = function gruntConf(grunt) {
@@ -43,10 +44,10 @@ module.exports = function gruntConf(grunt) {
       location: {
         options: {
           exif: {
-            'GPSLatitude': '60/1, 192322/10000, 0/1',
-            'GPSLatitudeRef': 'N',
-            'GPSLongitude': '24/1, 26125/10000, 0/1',
-            'GPSLongitudeRef': 'E'
+            GPSLatitude: '60/1, 192322/10000, 0/1',
+            GPSLatitudeRef: 'N',
+            GPSLongitude: '24/1, 26125/10000, 0/1',
+            GPSLongitudeRef: 'E'
           }
         },
         src: ['tmp/location.jpg'] // Copied in copy:location task

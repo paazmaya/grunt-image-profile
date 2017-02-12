@@ -14,7 +14,7 @@ for more details about what is done internally. [Also about the supported format
 ## Getting Started
 
 This plugin requires [Grunt](http://gruntjs.com/) `~1.0` and [Node.js](https://nodejs.org/en/)
-version to be minimum of `4.2.0`, which is the Long Term Support (LTS) version, and
+version to be minimum of `6.9.5`, which is the Long Term Support (LTS) version, and
 [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) installed.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the
@@ -217,6 +217,8 @@ There should be no errors appearing after any JavaScript file changes.
 
 ## Version history
 
+* `v0.4.0` (2017)
+  - Minimum supported Node.js version is now `6.9.5` (LTS)
 * `v0.3.1` (2016-08-11)
   - Dependencies are sure :tophat: up to date
   - Use ESLint directly without the Grunt.js plugin
@@ -242,4 +244,3 @@ There should be no errors appearing after any JavaScript file changes.
 Copyright (c) [Juga Paazmaya](https://paazmaya.fi) <paazmaya@yahoo.com>
 
 Licensed under the [MIT license](LICENSE).
-

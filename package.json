@@ -1,7 +1,7 @@
 {
   "name": "grunt-image-profile",
   "description": "A Grunt task for working with image metadata profiles via ImageMagick",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "homepage": "https://github.com/paazmaya/grunt-image-profile",
   "author": {
     "name": "Juga Paazmaya",
@@ -21,7 +21,7 @@
     "tasks",
     "README.md"
   ],
-  "main": "Gruntfile.js",
+  "main": "tasks/image_profile.js",
   "engines": {
     "node": ">=6.9.5"
   },
@@ -30,7 +30,7 @@
     "lint": "eslint Gruntfile.js tasks"
   },
   "devDependencies": {
-    "eslint": "^4.0.0",
+    "eslint": "^4.2.0",
     "eslint-config-paazmaya": "^4.0.0",
     "grunt": "~1.0",
     "grunt-contrib-clean": "~1.1",
